@@ -6,16 +6,16 @@ def get_user_password():
         get_user_password()
     return password
 
-def show_first_letter_of(password):
-    first_letter = get_first_letter_of(password)
-    print("The first letter you entered was: " + first_letter)
+def show_first_capital_letter(password):
+    first_capital_letter = get_first_letter_of(password).upper()
+    print("The first (capital) letter you entered was: " + first_capital_letter)
 
 def get_first_letter_of(text):
-    return text[0].upper()
+    return text[0]
 
 def main():
     password = get_user_password()
-    show_first_letter_of(password)
+    show_first_capital_letter(password)
 
 if __name__ == '__main__':
     main()
