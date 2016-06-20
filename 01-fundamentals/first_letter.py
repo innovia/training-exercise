@@ -2,6 +2,8 @@
 
 def get_user_password():
     password = input("Tell me your password:")
+    if not password:
+        get_user_password()
     return password
 
 def show_first_letter_of(password):
