@@ -1,7 +1,7 @@
 # Copyright (c) 2016 Ami . All rights reserved.
 
 def get_user_password():
-    password = input("Tell me your password:")
+    password = input("Tell me your password: ")
     if not password:
         get_user_password()
     return password
