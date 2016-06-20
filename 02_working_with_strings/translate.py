@@ -2,7 +2,7 @@
 
 def user_input():
     response = input("Enter some text: ")
-    translate(response.lower())
+    return response
 
 def translate(text):
     result = text.replace("a", "4").replace("b", "8").replace("e", "3").replace("i", "1").replace("o", "0").replace("s", "5").replace("t", "7")
@@ -10,7 +10,8 @@ def translate(text):
     print(result)
 
 def main():
-    user_input()
+    response = user_input()
+    translate(response.lower())
 
 if __name__ == '__main__':
     main()
