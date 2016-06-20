@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Ami. All rights reserved.
+# Copyright (c) 2016 Ami. All rights reserved.
 
 def user_input():
     response = input("Enter some text: ")
