@@ -4,7 +4,6 @@ def get_user_password():
     password = input("Tell me your password:")
     return password
 
-
 def show_first_letter_of(password):
     first_letter = get_first_letter_of(password)
     print("The first letter you entered was: " + first_letter)
