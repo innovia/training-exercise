@@ -6,12 +6,12 @@ def user_input():
 
 def translate(text):
     result = text.replace("a", "4").replace("b", "8").replace("e", "3").replace("i", "1").replace("o", "0").replace("s", "5").replace("t", "7")
-
-    print(result)
+    return result
 
 def main():
     response = user_input()
-    translate(response.lower())
+    result = translate(response.lower())
+    print(result)
 
 if __name__ == '__main__':
     main()
