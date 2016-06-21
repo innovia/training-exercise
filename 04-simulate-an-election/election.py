@@ -1,38 +1,72 @@
 # Copyright (c) 2016 Ami . All rights reserved
 
 from random import random
-from collections import defaultdict
 
+def elect_in_region(election_result, candidate_chances):
+    if election_result <= candidate_chances:
+        return 'a'
+    else:
+        return 'b'
 
-candidate_a_chances = {
-    "region1": 87,
-    "region2": 65,
-    "region3": 17
-}
+def simulate_a_single_election():
+    candidate_a_chances = {
+        "region1": 87,
+        "region2": 65,
+        "region3": 17
+    }
 
-# defaultdict means that if a key is not found in the dictionary,
-# then instead of a KeyError being thrown, a new entry is created
-a_voices = defaultdict(int)
-b_voices = defaultdict(int)
-
-for e in range(1, 10):
-    # voice is made up of random number between 0 and 1
-    # and is checked as the poistion in the chances for candidate A
-    # i.e: voice 89 is located outside the chances for region1 (87)
-    # and will be taken as the voice for candidate B
-    voice = int(random() * 100)
+    candidate_a_elected_count = 0
+    candidate_b_elected_count = 0
 
     for region in candidate_a_chances:
-        if voice <= candidate_a_chances[region]:
-            a_voices[region] += 1
+        elected = elect_in_region(election_result=int(random() * 100), candidate_chances=candidate_a_chances[region])
+
+        if elected == "a":
+            candidate_a_elected_count += 1
         else:
-            b_voices[region] += 1
+            candidate_b_elected_count += 1
+
+    if candidate_a_elected_count > candidate_b_elected_count:
+        return 'a'
+    else:
+        return 'b'
+
+def simulate_elections(elections_count):
+    candidate_a_elections_count = 0
+    candidate_b_elections_count = 0
+
+    for i in range(0, elections_count):
+        election_result = simulate_a_single_election()
+
+        if election_result == 'a':
+            candidate_a_elections_count += 1
+        else:
+            candidate_b_elections_count += 1
+
+    print("Candidate A won", candidate_a_elections_count, "times")
+
+    print("Candidate B won", candidate_b_elections_count, "times")
+
+    results = {
+        'count': elections_count,
+        'a': candidate_a_elections_count,
+        'b': candidate_b_elections_count
+    }
+
+    return results
+
+def calculate_probability(elections_count, candidate_winning_count):
+    return (float(candidate_winning_count) / float(elections_count)) * 100
 
 
-print("voices for candidate A")
-print(a_voices)
+if __name__ == '__main__':
+    elections_result = simulate_elections(10)
 
-print("voices for candidate B")
-print(b_voices)
+    candidate_a_probability_to_win = calculate_probability(elections_count=elections_result['count'], candidate_winning_count=elections_result['a'])
 
-simulation
+    candidate_b_probability_to_win = calculate_probability(elections_count=elections_result['count'], candidate_winning_count=elections_result['b'])
+
+    print("Candidate A probability to win in this election:", candidate_a_probability_to_win)
+
+    print("Candidate B probability to win in this election:", candidate_b_probability_to_win)
+
