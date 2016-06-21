@@ -2,6 +2,7 @@
 
 def invest(amount, rate, num_of_years):
     initial_amount = amount
+    
     print("\nPrincipal amount: ", amount)
 
     print("annual return rate: ", str(rate))
