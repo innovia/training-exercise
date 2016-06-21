@@ -10,7 +10,7 @@ def get_a_positive_integer_from_user():
 
 def find_divisor_from_integer(integer):
     for i in range(1, integer + 1):
-        if integer % i <= 0:
+        if integer % i == 0:
             print(i, "is a divisor of", integer)
 
 def main():
