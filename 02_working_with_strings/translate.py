@@ -1,8 +1,7 @@
 # Copyright (c) 2016 Ami. All rights reserved.
 
 def user_input():
-    response = input("Enter some text: ")
-    return response
+    return input("Enter some text: ")
 
 def translate(text):
     new_text = text
@@ -23,8 +22,7 @@ def translate(text):
 
 def main():
     response = user_input()
-    result = translate(response.lower())
-    print(result)
+    print(translate(response.lower()))
 
 if __name__ == '__main__':
     main()
