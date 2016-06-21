@@ -8,10 +8,12 @@ def invest(initial_amount, interest_rate, duration):
 
     for year in range(1, duration + 1):
         compound_rate = initial_amount * interest_rate
-        amount = initial_amount + compound_rate
+        initial_amount += compound_rate
+
         print("Year ", duration, ":", amount)
 
     roi  = amount - initial_amount
+    
     print("You made in {} years ${}".format(duration, roi))
 
 def main():
