@@ -5,8 +5,21 @@ def user_input():
     return response
 
 def translate(text):
-    result = text.replace("a", "4").replace("b", "8").replace("e", "3").replace("i", "1").replace("o", "0").replace("s", "5").replace("t", "7")
-    return result
+    new_text = text
+    dictionary = {
+        "a": "4",
+        "b": "8",
+        "e": "3",
+        "i": "1",
+        "o": "0",
+        "s": "5",
+        "t": "7"
+    }
+
+    for char in dictionary:
+        new_text = new_text.replace(char, dictionary[char])
+
+    return new_text
 
 def main():
     response = user_input()
