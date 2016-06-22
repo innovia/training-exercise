@@ -27,27 +27,68 @@ def make_poem():
         SpeechPart(
             name="noun",
             count=3,
-            vocabulary=["fossil", "horse", "aardvark", "judge", "chef", "mango", "extrovert", "gorilla"]
+            vocabulary=[
+                "fossil",
+                "horse",
+                "aardvark",
+                "judge",
+                "chef",
+                "mango",
+                "extrovert",
+                "gorilla"
+            ]
         ),
         SpeechPart(
             name="verb",
             count=3,
-            vocabulary=["kicks", "jingles", "bounces", "slurps", "meows", "explodes", "curdles"]
+            vocabulary=[
+                "kicks",
+                "jingles",
+                "bounces",
+                "slurps",
+                "meows",
+                "explodes",
+                "curdles"
+            ]
         ),
         SpeechPart(
             name="adjective",
             count=3,
-            vocabulary=["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"]
+            vocabulary=[
+                "furry",
+                "balding",
+                "incredulous",
+                "fragrant",
+                "exuberant",
+                "glistening"
+            ]
         ),
         SpeechPart(
             name="adverb",
             count=1,
-            vocabulary=["curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"]
+            vocabulary=[
+                "curiously",
+                "extravagantly",
+                "tantalizingly",
+                "furiously",
+                "sensuously"
+            ]
         ),
         SpeechPart(
             name="preposition",
             count=2,
-            vocabulary=["against", "after", "into", "beneath", "upon", "for", "in", "like", "over", "within"]
+            vocabulary=[
+                "against",
+                "after",
+                "into",
+                "beneath",
+                "upon",
+                "for",
+                "in",
+                "like",
+                "over",
+                "within"
+            ]
         )
     ]
 
