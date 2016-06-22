@@ -2,8 +2,8 @@
 
 from random import random
 
-def elect_in_region(election_result, candidate_chances):
-    if election_result <= candidate_chances:
+def elect_in_region(result, chances):
+    if result <= chances:
         return "a"
     else:
         return "b"
@@ -18,7 +18,8 @@ def simulate_a_single_election():
     candidate_b_elected_count = 0
 
     for region in candidate_a_chances:
-        elected = elect_in_region(election_result=int(random() * 100), candidate_chances=candidate_a_chances[region])
+        random_result = int(random() * 100)
+        elected = elect_in_region(election=random_result, chances=candidate_a_chances[region])
 
         if elected == "a":
             candidate_a_elected_count += 1
