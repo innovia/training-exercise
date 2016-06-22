@@ -58,8 +58,9 @@ def calculate_win_probability(elections_count, candidate_winning_count):
 
 if __name__ == '__main__':
     elections_result = simulate_elections(10)
-    candidate_a_probability_to_win = calculate_win_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["a"])
-    candidate_b_probability_to_win = calculate_win_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["b"])
+    candidate_a_probability_to_win = calculate_win_probability(elections_count=elections_result["count"],
+                                                               candidate_winning_count=elections_result["a"])
+    candidate_b_probability_to_win = calculate_win_probability(elections_count=elections_result["count"],
+                                                               candidate_winning_count=elections_result["b"])
     print("Candidate A probability to win in this election:", candidate_a_probability_to_win)
     print("Candidate B probability to win in this election:", candidate_b_probability_to_win)
-
