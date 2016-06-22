@@ -111,7 +111,7 @@ def make_poem():
                 poem_structure = poem_structure.replace("{A/An}", "A")
 
         for i in range(part.count):
-            transform_dict[part.name + str(i+1)] = selected_words[i]
+            transform_dict[part.name + str(i + 1)] = selected_words[i]
 
     poem = poem_structure.format(**transform_dict)
     # this will change vowels before adjective to an if needed
