@@ -20,7 +20,6 @@ def simulate_a_single_election():
     for region in candidate_a_chances:
         random_result = int(random() * 100)
         elected = elect_in_region(election=random_result, chances=candidate_a_chances[region])
-
         if elected == "a":
             candidate_a_elected_count += 1
         else:
