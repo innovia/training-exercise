@@ -34,7 +34,7 @@ def simulate_elections(elections_count):
     candidate_a_elections_count = 0
     candidate_b_elections_count = 0
 
-    for i in range(0, elections_count):
+    for i in range(elections_count):
         election_result = simulate_a_single_election()
 
         if election_result == "a":
