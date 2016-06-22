@@ -12,10 +12,10 @@ def invest(initial_amount, interest_rate, duration):
 
     margin = amount - initial_amount
     print("You made in {} years ${}".format(duration, margin))
-    print()
 
 def main():
     invest(initial_amount=100, interest_rate=.05, duration=8)
+    print()
     invest(initial_amount=2000, interest_rate=.025, duration=5)
 
 if __name__ == '__main__':
