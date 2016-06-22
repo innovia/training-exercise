@@ -45,7 +45,7 @@ def simulate_elections(elections_count):
     print("Candidate A won", candidate_a_elections_count, "times")
     print("Candidate B won", candidate_b_elections_count, "times")
 
-    return  {
+    return {
         "count": elections_count,
         "a": candidate_a_elections_count,
         "b": candidate_b_elections_count
