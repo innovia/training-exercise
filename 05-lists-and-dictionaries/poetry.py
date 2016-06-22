@@ -10,9 +10,6 @@ class SpeechPart(object):
         self.vocabulary = vocabulary
 
     def random_words(self):
-        return self.select_random_words_from_vocabulary()
-
-    def select_random_words_from_vocabulary(self):
         words = []
 
         while True:
