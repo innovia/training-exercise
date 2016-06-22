@@ -2,8 +2,8 @@
 
 from random import random
 
-def elect_in_region(result, chances):
-    if result <= chances:
+def elect_in_region(election, chances):
+    if election <= chances:
         return "a"
     else:
         return "b"
