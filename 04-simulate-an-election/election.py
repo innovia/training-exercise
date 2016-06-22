@@ -4,9 +4,9 @@ from random import random
 
 def elect_in_region(election_result, candidate_chances):
     if election_result <= candidate_chances:
-        return 'a'
+        return "a"
     else:
-        return 'b'
+        return "b"
 
 def simulate_a_single_election():
     candidate_a_chances = {
@@ -27,9 +27,9 @@ def simulate_a_single_election():
             candidate_b_elected_count += 1
 
     if candidate_a_elected_count > candidate_b_elected_count:
-        return 'a'
+        return "a"
     else:
-        return 'b'
+        return "b"
 
 def simulate_elections(elections_count):
     candidate_a_elections_count = 0
@@ -38,7 +38,7 @@ def simulate_elections(elections_count):
     for i in range(0, elections_count):
         election_result = simulate_a_single_election()
 
-        if election_result == 'a':
+        if election_result == "a":
             candidate_a_elections_count += 1
         else:
             candidate_b_elections_count += 1
@@ -48,9 +48,9 @@ def simulate_elections(elections_count):
     print("Candidate B won", candidate_b_elections_count, "times")
 
     results = {
-        'count': elections_count,
-        'a': candidate_a_elections_count,
-        'b': candidate_b_elections_count
+        "count": elections_count,
+        "a": candidate_a_elections_count,
+        "b": candidate_b_elections_count
     }
 
     return results
@@ -62,9 +62,9 @@ def calculate_probability(elections_count, candidate_winning_count):
 if __name__ == '__main__':
     elections_result = simulate_elections(10)
 
-    candidate_a_probability_to_win = calculate_probability(elections_count=elections_result['count'], candidate_winning_count=elections_result['a'])
+    candidate_a_probability_to_win = calculate_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["a"])
 
-    candidate_b_probability_to_win = calculate_probability(elections_count=elections_result['count'], candidate_winning_count=elections_result['b'])
+    candidate_b_probability_to_win = calculate_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["b"])
 
     print("Candidate A probability to win in this election:", candidate_a_probability_to_win)
 
