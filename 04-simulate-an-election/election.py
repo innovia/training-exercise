@@ -14,7 +14,6 @@ def simulate_a_single_election():
         "region2": 65,
         "region3": 17
     }
-
     candidate_a_elected_count = 0
     candidate_b_elected_count = 0
 
