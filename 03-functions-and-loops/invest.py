@@ -2,19 +2,15 @@
 
 def invest(initial_amount, interest_rate, duration):
     amount = initial_amount
-
     print("Principal amount: ", initial_amount)
-
     print("Annual return rate: ", interest_rate)
 
     for year in range(1, duration + 1):
         compound_rate = amount * interest_rate
         amount += compound_rate
-
         print("Year ", year, ":", amount)
 
     margin = amount - initial_amount
-
     print("You made in {} years ${}".format(duration, margin))
     print()
 
