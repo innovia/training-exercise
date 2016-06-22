@@ -7,16 +7,16 @@ class SpeechPart(object):
     def __init__(self, name, count, vocabulary):
         self.name = name
         self.count = count
-        self.vocabulary = set(vocabulary)
+        self.vocabulary = vocabulary
 
     def random_words(self):
-        words = set()
+        words = []
 
         while True:
             if len(words) == self.count:
                 return words
             else:
-                if vocabulary == words:
+                if len(self.vocabulary) == len(words):
                     return words
                 selected_word = choice(self.vocabulary)
                 if selected_word not in words:
@@ -57,23 +57,14 @@ def make_poem():
             name="adjective",
             count=3,
             vocabulary=[
-                "furry",
-                "balding",
-                "incredulous",
-                "fragrant",
-                "exuberant",
-                "glistening"
+                "furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"
             ]
         ),
         SpeechPart(
             name="adverb",
             count=1,
             vocabulary=[
-                "curiously",
-                "extravagantly",
-                "tantalizingly",
-                "furiously",
-                "sensuously"
+                "curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"
             ]
         ),
         SpeechPart(
