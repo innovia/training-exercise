@@ -52,16 +52,16 @@ def simulate_elections(elections_count):
     }
 
 
-def calculate_probability(elections_count, candidate_winning_count):
+def calculate_win_probability(elections_count, candidate_winning_count):
     return (float(candidate_winning_count) / float(elections_count)) * 100
 
 
 if __name__ == '__main__':
     elections_result = simulate_elections(10)
 
-    candidate_a_probability_to_win = calculate_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["a"])
+    candidate_a_probability_to_win = calculate_win_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["a"])
 
-    candidate_b_probability_to_win = calculate_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["b"])
+    candidate_b_probability_to_win = calculate_win_probability(elections_count=elections_result["count"], candidate_winning_count=elections_result["b"])
 
     print("Candidate A probability to win in this election:", candidate_a_probability_to_win)
 
