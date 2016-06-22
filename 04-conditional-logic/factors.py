@@ -2,7 +2,6 @@
 
 def get_a_positive_integer_from_user():
     response = int(input("Enter a positive integer: "))
-
     if not response:
         return get_a_positive_integer_from_user()
 
