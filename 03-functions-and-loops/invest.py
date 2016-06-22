@@ -1,6 +1,6 @@
 # Copyright (c) 2016 Ami . All rights reserved
 
-def invest(initial_amount, interest_rate, duration):
+def print_invest_prediction(initial_amount, interest_rate, duration):
     amount = initial_amount
     print("Principal amount: ", initial_amount)
     print("Annual return rate: ", interest_rate)
@@ -11,12 +11,12 @@ def invest(initial_amount, interest_rate, duration):
         print("Year ", year, ":", amount)
 
     margin = amount - initial_amount
-    print("You made in {} years ${}".format(duration, margin))
+    print("You would have made in {} years ${}".format(duration, margin))
 
 def main():
-    invest(initial_amount=100, interest_rate=.05, duration=8)
+    print_invest_prediction(initial_amount=100, interest_rate=.05, duration=8)
     print()
-    invest(initial_amount=2000, interest_rate=.025, duration=5)
+    print_invest_prediction(initial_amount=2000, interest_rate=.025, duration=5)
 
 if __name__ == '__main__':
     main()
