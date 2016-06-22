@@ -43,16 +43,14 @@ def simulate_elections(elections_count):
             candidate_b_elections_count += 1
 
     print("Candidate A won", candidate_a_elections_count, "times")
-
     print("Candidate B won", candidate_b_elections_count, "times")
 
-    results = {
+    return  {
         "count": elections_count,
         "a": candidate_a_elections_count,
         "b": candidate_b_elections_count
     }
 
-    return results
 
 def calculate_probability(elections_count, candidate_winning_count):
     return (float(candidate_winning_count) / float(elections_count)) * 100
