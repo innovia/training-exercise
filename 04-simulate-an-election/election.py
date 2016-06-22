@@ -54,7 +54,7 @@ def simulate_elections(elections_count):
     }
 
 def calculate_win_probability(elections_count, candidate_winning_count):
-    return (float(candidate_winning_count) / float(elections_count)) * 100
+    return float(candidate_winning_count) / elections_count * 100
 
 if __name__ == '__main__':
     elections_result = simulate_elections(10)
