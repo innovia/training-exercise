@@ -7,15 +7,17 @@ class SpeechPart(object):
     def __init__(self, name, count, vocabulary):
         self.name = name
         self.count = count
-        self.vocabulary = vocabulary
+        self.vocabulary = set(vocabulary)
 
     def random_words(self):
-        words = []
+        words = set()
 
         while True:
             if len(words) == self.count:
                 return words
             else:
+                if vocabulary == words:
+                    return words
                 selected_word = choice(self.vocabulary)
                 if selected_word not in words:
                     words.append(selected_word)
