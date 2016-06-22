@@ -1,12 +1,14 @@
 # Copyright (c) 2016 Ami . All rights reserved
 
 from random import random
+A = "a"
+B = "b"
 
 def elect_in_region(election, chances):
     if election <= chances:
-        return "a"
+        return A
     else:
-        return "b"
+        return B
 
 def simulate_a_single_election():
     candidate_a_chances = {
@@ -20,15 +22,15 @@ def simulate_a_single_election():
     for region in candidate_a_chances:
         random_result = int(random() * 100)
         elected = elect_in_region(election=random_result, chances=candidate_a_chances[region])
-        if elected == "a":
+        if elected == A:
             candidate_a_elected_count += 1
         else:
             candidate_b_elected_count += 1
 
     if candidate_a_elected_count > candidate_b_elected_count:
-        return "a"
+        return A
     else:
-        return "b"
+        return B
 
 def simulate_elections(elections_count):
     candidate_a_elections_count = 0
@@ -37,7 +39,7 @@ def simulate_elections(elections_count):
     for i in range(elections_count):
         election_result = simulate_a_single_election()
 
-        if election_result == "a":
+        if election_result == A:
             candidate_a_elections_count += 1
         else:
             candidate_b_elections_count += 1
