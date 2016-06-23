@@ -93,7 +93,7 @@ def make_poem():
             transform_dict[part.name + str(i + 1)] = selected_words[i]
 
     poem = poem_structure.format(**transform_dict)
-    # This will change vowels before adjective to an if needed.
+    # This will change a before adjective that starts with a vowel to an if needed.
     return re.sub('(\sa\s)(a|e|i|a|o|u)', " an \\2", poem)
 
 if __name__ == '__main__':
