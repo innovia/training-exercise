@@ -83,8 +83,10 @@ def make_poem():
     for part in speech_parts:
         selected_words = part.random_words()
 
-        if part.name == 'adjective':
-            if re.match('^(a|e|i|a|o|u)', selected_words[0]):
+        if part.name == "adjective":
+            pattern = re.compile('^(a|e|i|a|o|u)')
+
+            if pattern.match(selected_words[0]):
                 poem_structure = poem_structure.replace("{A/An}", "An")
             else:
                 poem_structure = poem_structure.replace("{A/An}", "A")
