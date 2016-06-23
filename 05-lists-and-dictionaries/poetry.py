@@ -25,6 +25,21 @@ class SpeechPart(object):
 def make_poem():
     speech_parts = [
         SpeechPart(
+            name="verb",
+            count=3,
+            vocabulary=["kicks", "jingles", "bounces", "slurps", "meows", "explodes", "curdles"]
+        ),
+        SpeechPart(
+            name="adjective",
+            count=3,
+            vocabulary=["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"]
+        ),
+        SpeechPart(
+            name="adverb",
+            count=1,
+            vocabulary=["curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"]
+        ),
+        SpeechPart(
             name="noun",
             count=3,
             vocabulary=[
@@ -36,33 +51,6 @@ def make_poem():
                 "mango",
                 "extrovert",
                 "gorilla"
-            ]
-        ),
-        SpeechPart(
-            name="verb",
-            count=3,
-            vocabulary=[
-                "kicks",
-                "jingles",
-                "bounces",
-                "slurps",
-                "meows",
-                "explodes",
-                "curdles"
-            ]
-        ),
-        SpeechPart(
-            name="adjective",
-            count=3,
-            vocabulary=[
-                "furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"
-            ]
-        ),
-        SpeechPart(
-            name="adverb",
-            count=1,
-            vocabulary=[
-                "curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"
             ]
         ),
         SpeechPart(
