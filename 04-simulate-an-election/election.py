@@ -1,6 +1,7 @@
 # Copyright (c) 2016 Ami . All rights reserved
 
 from random import random
+
 CANDIDATE_A = "a"
 CANDIDATE_B = "b"
 
