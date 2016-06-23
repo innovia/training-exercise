@@ -13,11 +13,9 @@ class SpeechPart(object):
         words = []
 
         while True:
-            if len(words) == self.count:
+            if len(words) == self.count or len(words) == len(self.vocabulary):
                 return words
             else:
-                if len(self.vocabulary) == len(words):
-                    return words
                 selected_word = choice(self.vocabulary)
                 if selected_word not in words:
                     words.append(selected_word)
