@@ -16,25 +16,27 @@ def find_files_in_folder(path, extension, file_max_size):
             full_path = os.path.abspath(os.path.join(current_folder, file_name))
             file_size = os.path.getsize(full_path)
 
-            if file_name.lower().endswith(extention) and file_size < file_max_size:
+            if file_name.lower().endswith(extension) and file_size < file_max_size:
                 file_list.append(full_path)
 
     return file_list
 
 def main():
     folder = "little pics"
-    full_path = os.path.join(os.path.dirname(__file__), folder)
+    script_folder = os.path.dirname(__file__)
+    full_path = os.path.join(script_folder, folder)
 
     if not os.path.exists(full_path):
         print("Could not find the folder at " + full_path)
         exit(1)
 
-    file_list = find_files_in_folder(path=folder, extention="jpg", file_max_size=2000)
+    file_list = find_files_in_folder(path=full_path, extension="jpg", file_max_size=2000)
 
     if file_list:
         for file_name in file_list:
-            print("Deleting {}...".format(file_name))
-            os.remove(full_path)
+            file_to_be_removed = os.path.join(full_path, file_name)
+            print("Deleting {}...".format(file_to_be_removed))
+            os.remove(file_to_be_removed)
 
 if __name__ == "__main__":
     main()
