@@ -16,8 +16,8 @@ def find_files_in_folder(path, extention, file_max_size):
     return file_list
 
 def main():
-    folder = "./little pics"
-    full_path = os.path.abspath(folder)
+    folder = "little pics"
+    full_path = os.path.join(os.path.dirname(__file__), folder)
 
     if not os.path.exists(full_path):
         print("Could not find the folder at " + full_path)
