@@ -15,7 +15,7 @@ def capital_of_state_quiz(state):
             return True
         elif response == "exit":
             print("Goodbye")
-            exit(0)
+            return True
         else:
             print("Wrong - try again or type exit to quit")
             return capital_of_state_quiz(state)
