@@ -24,5 +24,5 @@ def main():
     state = get_random_state()
     capital_of_state_quiz(state)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
