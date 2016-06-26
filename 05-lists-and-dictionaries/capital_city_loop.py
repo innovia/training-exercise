@@ -14,6 +14,7 @@ def capital_of_state_quiz(state):
             print("Correct")
             return True
         elif response == "exit":
+            print("The correct answer is: " + capitals_dict[state])
             print("Goodbye")
             return True
         else:
