@@ -37,6 +37,8 @@ def main():
             file_to_be_removed = os.path.join(full_path, file_name)
             print("Deleting {}...".format(file_to_be_removed))
             os.remove(file_to_be_removed)
+    else:
+        print("Did not find any files matching the criteria in the folder you specified")
 
 if __name__ == "__main__":
     main()
