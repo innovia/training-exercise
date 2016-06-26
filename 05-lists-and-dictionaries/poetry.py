@@ -96,7 +96,7 @@ def make_poem():
 
     poem = poem_structure.format(**transform_dict)
     # This will change a before adjective that starts with a vowel to an if needed.
-    return re.sub('(\s+a\s+)(a|e|i|a|o|u)', " an \\2", poem)
+    return re.sub("(\s+a\s+)(a|e|i|a|o|u)", " an \\2", poem)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(make_poem())
