@@ -10,7 +10,7 @@ def capital_of_state_quiz(state):
     while True:
         response = input("What is the capital of " + state + "? ").lower()
 
-        if response == capitals_dict[state].lower():
+        if check_answer(response, capitals_dict[state]):
             print("Correct")
             return True
         elif response == "exit":
@@ -19,6 +19,10 @@ def capital_of_state_quiz(state):
         else:
             print("Wrong - try again or type exit to quit")
             return capital_of_state_quiz(state)
+
+def check_answer(answer, correct_answer):
+    if answer.lower() == correct_answer.lower():
+        return True
 
 def main():
     state = get_random_state()
