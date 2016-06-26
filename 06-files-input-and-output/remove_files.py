@@ -16,19 +16,19 @@ def find_files_in_folder(path, extention, file_max_size):
     return file_list
 
 def main():
-    folder = './little pics'
+    folder = "./little pics"
     full_path = os.path.abspath(folder)
 
     if not os.path.exists(full_path):
         print("Could not find the folder at " + full_path)
         exit(1)
 
-    file_list = find_files_in_folder(path=folder, extention='jpg', file_max_size=2000)
+    file_list = find_files_in_folder(path=folder, extention="jpg", file_max_size=2000)
 
     if file_list:
         for file_name in file_list:
             print("Deleting {}...".format(file_name))
             os.remove(full_path)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
