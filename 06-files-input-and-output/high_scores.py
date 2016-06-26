@@ -5,16 +5,20 @@ import os
 
 def parse_csv(file):
     data = {}
-
+    print
     with open(file, "r") as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for name, score in csv_reader:
-            score = int(score)
-            if name not in data:
-                data[name] = score
-            else:
-                if score > data[name]:
+        try:
+            csv_reader = csv.reader(csv_file)
+            for name, score in csv_reader:
+                score = int(score)
+                if name not in data:
                     data[name] = score
+                else:
+                    if score > data[name]:
+                        data[name] = score
+
+        except ValueError:
+            print("Could not parse csv")
 
     return data
 
@@ -25,8 +29,6 @@ def show_high_scores(data):
     for name in sorted(data):
         print(name, data[name])
 
-    print("-------------")
-
 def leader_board(data):
     print("Leader board:")
     print("-------------")
@@ -35,14 +37,21 @@ def leader_board(data):
     for name in sorted_data:
         print("{position} {name} {score}".format(position=sorted_data.index(name) + 1 , name=name, score=data[name]))
 
-    print("-------------")
-
 def main():
-    full_path = os.path.realpath("./scores.csv")
-    data = parse_csv(full_path)
-    print(data)
-    show_high_scores(data)
-    leader_board(data)
+    csv_file = "scores.csv"
+    script_folder = os.path.dirname(__file__)
+    full_path = os.path.join(script_folder, csv_file)
 
-if __name__ == '__main__':
+    if os.path.exists(full_path):
+        data = parse_csv(full_path)
+        if data:
+            show_high_scores(data)
+            print()
+            leader_board(data)
+        else:
+            print("Something went wrong with the csv, exiting now")
+    else:
+        print("CSV file " + full_path + " does not exist")
+
+if __name__ == "__main__":
     main()
