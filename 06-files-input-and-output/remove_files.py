@@ -2,7 +2,13 @@
 
 import os
 
-def find_files_in_folder(path, extention, file_max_size):
+def find_files_in_folder(path, extension, file_max_size):
+    print(
+        "Searching for files with .{} extension in \"{}\" and maximum size of {}bytes".format(
+            extension, path, file_max_size
+        )
+    )
+
     file_list = []
 
     for current_folder, subfolders, file_names in os.walk(path):
