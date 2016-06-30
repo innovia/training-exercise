@@ -37,6 +37,7 @@ def main():
         for file_full_path in file_list:
             print("Deleting {}...".format(file_full_path))
             os.remove(file_full_path)
+
     else:
         print("Did not find any files matching the criteria in the folder you specified")
 
