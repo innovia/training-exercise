@@ -4,8 +4,9 @@ import os
 
 def find_files_in_folder(path, extension, file_max_size):
     print(
-        "Searching for files with .{} extension in \"{}\" and maximum size of {}bytes".format(
-            extension, path, file_max_size
+        "Searching for files with .{extention} extension in \"{path}\""
+        " and maximum size of {size}bytes".format(
+            extention=extension, path=path, size=file_max_size
         )
     )
 
