@@ -2,7 +2,7 @@
 
 import os
 
-def find_files_in_folder(path, extension, file_max_size):
+def find_files_in_folder(extension, file_max_size, path,):
     print(
         "Searching for files with .{extention} extension in \"{path}\""
         " and maximum size of {size}bytes".format(
@@ -23,9 +23,9 @@ def find_files_in_folder(path, extension, file_max_size):
     return file_list
 
 def main():
-    folder = "little pics"
+    pictures_folder_name = "little pics"
     script_folder = os.path.dirname(__file__)
-    full_path = os.path.join(script_folder, folder)
+    full_path = os.path.join(script_folder, pictures_folder_name)
 
     if not os.path.exists(full_path):
         print("Could not find the folder at " + full_path)
