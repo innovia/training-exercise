@@ -14,7 +14,7 @@ def find_files_in_folder(extension, file_max_size, path,):
 
     for current_folder, subfolders, file_names in os.walk(path):
         for file_name in file_names:
-            full_path = os.path.abspath(os.path.join(current_folder, file_name))
+            full_path = os.path.join(current_folder, file_name)
             file_size = os.path.getsize(full_path)
 
             if file_name.lower().endswith(extension) and file_size < file_max_size:
