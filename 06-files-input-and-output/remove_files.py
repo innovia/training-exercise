@@ -34,10 +34,9 @@ def main():
     file_list = find_files_in_folder(path=pictures_full_path, extension="jpg", file_max_size=2000)
 
     if file_list:
-        for file_name in file_list:
-            file_to_be_removed = os.path.join(pictures_full_path, file_name)
-            print("Deleting {}...".format(file_to_be_removed))
-            os.remove(file_to_be_removed)
+        for file_full_path in file_list:
+            print("Deleting {}...".format(file_full_path))
+            os.remove(file_full_path)
     else:
         print("Did not find any files matching the criteria in the folder you specified")
 
