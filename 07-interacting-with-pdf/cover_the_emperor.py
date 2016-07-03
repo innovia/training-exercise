@@ -38,6 +38,6 @@ def main():
     print("Joining cover with pdf...", end="")
     write_pdf_file(pages, output_file_name)
     print("Done")
-    
+
 if __name__ == "__main__":
     main()
