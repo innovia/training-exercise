@@ -19,7 +19,6 @@ def capital_of_state_quiz(state):
             return True
         else:
             print("Wrong - try again or type exit to quit")
-            return capital_of_state_quiz(state)
 
 def check_answer(answer, correct_answer):
     if answer.lower() == correct_answer.lower():
