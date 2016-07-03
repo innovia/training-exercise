@@ -10,5 +10,5 @@ capitals_dict = {
     "Connecticut": "Hartford",
     "Delaware": "Dover",
     "Florida": "Tallahassee",
-    "Georgia": "Atlanta"
+    "Georgia": "Atlanta",
 }
