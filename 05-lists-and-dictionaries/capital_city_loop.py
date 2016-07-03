@@ -23,6 +23,8 @@ def capital_of_state_quiz(state):
 def check_answer(answer, correct_answer):
     if answer.lower() == correct_answer.lower():
         return True
+    else
+        return False
 
 def main():
     state = get_random_state()
