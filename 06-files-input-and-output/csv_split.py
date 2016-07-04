@@ -94,7 +94,8 @@ def output_to_files(csv_chunks, output_path):
 
     for index, chunk in enumerate(csv_chunks):
         chunk.insert(0, header)
-        output_file = output_path + "/csv_part_" + str(index)
+        file_name = "csv_part_" + str(index)
+        output_file = os.path.join(output_path, file_name)
         print("Saving {file_name} with {lines} lines in it".format(
             file_name=output_file,
             lines=len(chunk),
