@@ -11,8 +11,9 @@ def parse_csv(csv_file):
             for name, score in csv_reader:
                 score = int(score)
                 data[name] = max(data.get(name) or 0, score)
-        except csv.Error:
-            print("Could not parse csv")
+        except ValueError as e:
+            print("Could not parse csv", end="")
+            print(e)
 
     return data
 
