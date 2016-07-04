@@ -10,7 +10,7 @@ def parse_csv(csv_file):
             csv_reader = csv.reader(csv_file)
             for name, score in csv_reader:
                 score = int(score)
-                data[name] = max(data.get(name), score)
+                data[name] = max(data.get(name) or 0, score)
         except csv.Error:
             print("Could not parse csv")
 
@@ -28,9 +28,9 @@ def leader_board(data):
     print("-------------")
     sorted_data = sorted(data, key=data.get, reverse=True)
 
-    for name in sorted_data:
+    for index, name in enumerate(sorted_data):
         print("{position} {name} {score}".format(
-            position=sorted_data.index(name) + 1,
+            position=index + 1,
             name=name,
             score=data[name],
         ))
