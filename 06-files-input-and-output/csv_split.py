@@ -37,12 +37,13 @@ def get_arguments():
     else:
         return parser.parse_args()
 
-def check_if_file_exists(file):
-    if os.path.exists(file):
+def check_if_file_exists(file_path):
+    if os.path.exists(file_path):
         return True
     else:
-        print("File not found:", file)
+        print("File not found:", file_path)
         return False
+
 def validate_minimum_rows(csv_file_name, csv_file_num_lines, row_limit):
     print(
         "Validating file {file_name} has more than {row_limit} rows to split by...".format(
