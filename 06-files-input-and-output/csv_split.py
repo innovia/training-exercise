@@ -32,7 +32,7 @@ def get_arguments():
 
     if len(sys.argv) == 1:
         parser.print_help()
-        return False
+        return None
     else:
         return parser.parse_args()
 
