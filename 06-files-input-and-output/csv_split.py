@@ -8,12 +8,28 @@ def get_arguments():
     current_directory = os.getcwd()
     parser = argparse.ArgumentParser(description="Split CSV by every x rows")
 
-    parser.add_argument("-i", action="store", dest="input_file", help="CSV input file")
-    parser.add_argument("-o", action="store", dest="output_path",
-                        help="Output path - where to store the split CSV files",
-                        default=current_directory)
-    parser.add_argument("-r", action="store", dest="row_limit",
-                        help="split by every x lines", type=int, required=True)
+    parser.add_argument(
+        "-i",
+        action="store",
+        dest="input_file",
+        help="CSV input file"
+    )
+    parser.add_argument(
+        "-o",
+        action="store",
+        dest="output_path",
+        help="Output path - where to store the split CSV files",
+        default=current_directory
+    )
+    parser.add_argument(
+        "-r",
+        action="store",
+        dest="row_limit",
+        help="split by every x lines",
+        type=int,
+        required=True
+    )
+
     if len(sys.argv) == 1:
         parser.print_help()
         return False
