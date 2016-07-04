@@ -21,10 +21,7 @@ def capital_of_state_quiz(state):
             print("Wrong - try again or type exit to quit")
 
 def check_answer(answer, correct_answer):
-    if answer.lower() == correct_answer.lower():
-        return True
-    else
-        return False
+    return answer.lower() == correct_answer.lower()
 
 def main():
     state = get_random_state()
