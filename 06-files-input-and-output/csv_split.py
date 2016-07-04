@@ -88,6 +88,10 @@ def split_list_in_groups_of(group_size, list_to_slice):
 
     return slices
 
+def save_file(file_path, data):
+    with open(file_path, 'w') as file_to_save:
+        file_to_save.writelines(data)
+
 def output_to_files(csv_chunks, output_path):
     header = csv_chunks[0].pop(0)
     os.makedirs(output_path, exist_ok=True)
@@ -100,8 +104,7 @@ def output_to_files(csv_chunks, output_path):
             file_name=output_file,
             lines=len(chunk),
         ))
-        with open(output_file, 'w') as csv_chunk_file:
-            csv_chunk_file.writelines(chunk)
+        save_file(output_file, chunk)
 
 def main():
     options = get_arguments()
