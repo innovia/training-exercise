@@ -5,7 +5,6 @@ import os
 
 def parse_csv(file):
     data = {}
-    print
     with open(file, "r") as csv_file:
         try:
             csv_reader = csv.reader(csv_file)
