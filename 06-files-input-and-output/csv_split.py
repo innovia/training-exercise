@@ -44,7 +44,11 @@ def check_if_file_exists(file):
         return False
 
 def validate_minimum_rows(file, row_limit):
-    print("Validating file {} has more than {} rows to split by...".format(file, row_limit),
+    print(
+        "Validating file {} has more than {} rows to split by...".format(
+            file,
+            row_limit,
+        ),
         end=""
     )
     file_lines = sum(1 for line in open(file))
@@ -53,7 +57,9 @@ def validate_minimum_rows(file, row_limit):
         print(
             "Error: the file {file} contains {file_lines} lines, "
             "it is smaller than the {row_limit} rows to split by".format(
-                file=file, file_lines=file_lines, row_limit= row_limit
+                file=file,
+                file_lines=file_lines,
+                row_limit= row_limit,
             )
         )
         return False
@@ -85,10 +91,11 @@ def in_groups_of(size, list_to_slice):
 
 def output_to_files(csv_chunks, output_path):
     header = csv_chunks[0].pop(0)
-
+    os.makedirs(output_path, exist_ok=True)
+    
     for index, chunk in enumerate(csv_chunks):
         chunk.insert(0, header)
-        output_file= output_path + "/csv_part_" + str(index)
+        output_file = output_path + "/csv_part_" + str(index)
         print("Saving {file_name} with {lines} lines in it".format(
             file_name=output_file, lines=len(chunk)
         ))
@@ -97,17 +104,20 @@ def output_to_files(csv_chunks, output_path):
 
 def main():
     options = get_arguments()
-    if options:
-        file_exists = check_if_file_exists(options.input_file)
+    try:
+        if options:
+            file_exists = check_if_file_exists(options.input_file)
 
-        if file_exists:
-            is_valid = validate_minimum_rows(options.input_file, options.row_limit)
-        else:
-            is_valid = False
+            if file_exists:
+                is_valid = validate_minimum_rows(options.input_file, options.row_limit)
+            else:
+                is_valid = False
 
-        if is_valid:
-            csv_chuncks = split_csv(options.input_file, options.row_limit)
-            output_to_files(csv_chuncks, options.output_path)
+            if is_valid:
+                csv_chuncks = split_csv(options.input_file, options.row_limit)
+                output_to_files(csv_chuncks, options.output_path)
+    except Exception as e:
+        print("Something went wrong - {}".format(e))
 
 if __name__ == "__main__":
     main()
