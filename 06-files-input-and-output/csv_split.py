@@ -68,7 +68,7 @@ def validate_minimum_rows(file_path, row_limit):
         print("There are " + str(file_num_lines) + " lines in the file")
         return True
 
-def split_csv(file_path, row_limit):
+def split_csv__to_chunks_by_rows(file_path, row_limit):
     print("Splitting CSV into chunks every " + str(row_limit) + " lines")
     with open(file_path, "r") as csv_file:
         csv_data = csv_file.readlines()
@@ -115,7 +115,7 @@ def main():
                 is_valid = False
 
             if is_valid:
-                csv_chuncks = split_csv(options.input_file, options.row_limit)
+                csv_chuncks = split_csv__to_chunks_by_rows(options.input_file, options.row_limit)
                 output_to_files(csv_chuncks, options.output_path)
     except Exception as e:
         print("Something went wrong - {}".format(e))
