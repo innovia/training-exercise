@@ -36,11 +36,11 @@ def get_arguments():
     else:
         return parser.parse_args()
 
-def check_if_file_exists(file):
-    if os.path.exists(file):
+def check_if_file_exists(file_path):
+    if os.path.exists(file_path):
         return True
     else:
-        print("File not found:", file)
+        print("File not found:", file_path)
         return False
 
 def validate_minimum_rows(file, row_limit):
@@ -92,7 +92,7 @@ def in_groups_of(size, list_to_slice):
 def output_to_files(csv_chunks, output_path):
     header = csv_chunks[0].pop(0)
     os.makedirs(output_path, exist_ok=True)
-    
+
     for index, chunk in enumerate(csv_chunks):
         chunk.insert(0, header)
         output_file = output_path + "/csv_part_" + str(index)
