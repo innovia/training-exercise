@@ -10,12 +10,7 @@ def parse_csv(file):
             csv_reader = csv.reader(csv_file)
             for name, score in csv_reader:
                 score = int(score)
-                if name not in data:
-                    data[name] = score
-                else:
-                    if score > data[name]:
-                        data[name] = score
-
+                data[name] = max(data.get(name), score)
         except ValueError:
             print("Could not parse csv")
 
