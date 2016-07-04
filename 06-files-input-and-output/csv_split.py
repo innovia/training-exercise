@@ -73,14 +73,14 @@ def split_csv__to_chunks_by_rows(file_path, row_limit):
     with open(file_path, "r") as csv_file:
         csv_data = csv_file.readlines()
 
-    csv_chunks = in_groups_of(row_limit, csv_data)
+    csv_chunks = split_list_in_groups_of(row_limit, csv_data)
     return csv_chunks
 
-def in_groups_of(size, list_to_slice):
+def split_list_in_groups_of(group_size, list_to_slice):
     slices = list()
 
-    for i, item in enumerate(list_to_slice):
-        if i % size == 0:
+    for index, item in enumerate(list_to_slice):
+        if index % group_size == 0:
             current_slice = list()
             current_slice.append(item)
             slices.append(current_slice)
