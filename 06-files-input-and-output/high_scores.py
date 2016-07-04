@@ -3,9 +3,9 @@
 import csv
 import os
 
-def parse_csv(file):
+def parse_csv(csv_file):
     data = {}
-    with open(file, "r") as csv_file:
+    with open(csv_file, "r") as csv_file:
         try:
             csv_reader = csv.reader(csv_file)
             for name, score in csv_reader:
