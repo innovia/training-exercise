@@ -24,11 +24,10 @@ def find_files_in_folder(extension, file_max_size, path):
 
     return file_list
 
-def delete_files(fileList):
-    if file_list:
-        for file_full_path in file_list:
-            print("Deleting {}...".format(file_full_path))
-            os.remove(file_full_path)
+def delete_files(file_list):
+    for file_full_path in file_list:
+        print("Deleting {}...".format(file_full_path))
+        os.remove(file_full_path)
 
 def main():
     pictures_folder_name = "little pics"
@@ -41,8 +40,8 @@ def main():
 
     file_list = find_files_in_folder(path=pictures_full_path, extension="jpg", file_max_size=2000)
 
-    delete_files(file_list)
-
+    if file_list:
+        delete_files(file_list)
     else:
         print("Did not find any files matching the criteria in the folder you specified")
 
