@@ -12,7 +12,8 @@ def get_arguments():
         "-i",
         action="store",
         dest="input_file",
-        help="CSV input file"
+        help="CSV input file",
+        required=True
     )
     parser.add_argument(
         "-o",
