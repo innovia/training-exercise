@@ -68,9 +68,9 @@ def validate_minimum_rows(file_path, row_limit):
         print("There are " + str(file_num_lines) + " lines in the file")
         return True
 
-def split_csv(file, row_limit):
+def split_csv(file_path, row_limit):
     print("Splitting CSV into chunks every " + str(row_limit) + " lines")
-    with open(file, "r") as csv_file:
+    with open(file_path, "r") as csv_file:
         csv_data = csv_file.readlines()
 
     csv_chunks = in_groups_of(row_limit, csv_data)
@@ -97,7 +97,8 @@ def output_to_files(csv_chunks, output_path):
         chunk.insert(0, header)
         output_file = output_path + "/csv_part_" + str(index)
         print("Saving {file_name} with {lines} lines in it".format(
-            file_name=output_file, lines=len(chunk)
+            file_name=output_file,
+            lines=len(chunk),
         ))
         with open(output_file, 'w') as csv_chunk_file:
             csv_chunk_file.writelines(chunk)
