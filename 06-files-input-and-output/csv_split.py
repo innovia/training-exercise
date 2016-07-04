@@ -43,21 +43,21 @@ def check_if_file_exists(file_path):
         print("File not found:", file_path)
         return False
 
-def validate_minimum_rows(file, row_limit):
+def validate_minimum_rows(file_path, row_limit):
     print(
         "Validating file {} has more than {} rows to split by...".format(
-            file,
+            file_path,
             row_limit,
         ),
         end=""
     )
-    file_lines = sum(1 for line in open(file))
+    file_lines = sum(1 for line in open(file_path))
 
     if file_lines < row_limit:
         print(
             "Error: the file {file} contains {file_lines} lines, "
             "it is smaller than the {row_limit} rows to split by".format(
-                file=file,
+                file=file_path,
                 file_lines=file_lines,
                 row_limit= row_limit,
             )
