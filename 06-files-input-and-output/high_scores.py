@@ -29,7 +29,11 @@ def leader_board(data):
     sorted_data = sorted(data, key=data.get, reverse=True)
 
     for name in sorted_data:
-        print("{position} {name} {score}".format(position=sorted_data.index(name) + 1 , name=name, score=data[name]))
+        print("{position} {name} {score}".format(
+            position=sorted_data.index(name) + 1,
+            name=name,
+            score=data[name],
+        ))
 
 def main():
     csv_file = "scores.csv"
