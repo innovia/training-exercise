@@ -1,7 +1,7 @@
 # Copyright (c) 2016 Ami . All rights reserved
 
-import os
 from PyPDF2 import PdfFileReader, PdfFileWriter
+import os
 
 def read_pdf_file(input_file_name):
     return PdfFileReader(open(input_file_name, "rb"))
