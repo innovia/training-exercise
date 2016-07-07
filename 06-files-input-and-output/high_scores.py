@@ -15,6 +15,7 @@ def parse_csv(csv_path):
         except (csv.Error, ValueError) as e:
             print("Could not parse csv => ", end="")
             print(e)
+            return None
 
     return data
 
