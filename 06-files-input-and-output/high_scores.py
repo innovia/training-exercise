@@ -31,17 +31,17 @@ def leader_board(data):
     print("-------------")
     sorted_data = sorted(data, key=data.get, reverse=True)
 
-    for index, name in enumerate(sorted_data):
+    for place, name in enumerate(sorted_data, start=1):
         print("{position} {name} {score}".format(
-            position=index + 1,
+            position=place,
             name=name,
             score=data[name],
         ))
 
 def main():
-    csv_file = "scores.csv"
+    csv_file_name = "scores.csv"
     script_folder = os.path.dirname(__file__)
-    full_path = os.path.join(script_folder, csv_file)
+    full_path = os.path.join(script_folder, csv_file_name)
 
     if os.path.exists(full_path):
         data = parse_csv(full_path)
