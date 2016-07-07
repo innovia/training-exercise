@@ -5,15 +5,15 @@ import os
 
 def parse_csv(csv_path):
     data = {}
-    with open(csv_path, "r") as csv_path:
+    with open(csv_path, "r") as csv_file:
         try:
-            csv_reader = csv.reader(csv_path)
+            csv_reader = csv.reader(csv_file)
 
             for name, score in csv_reader:
                 score = int(score)
                 data[name] = max(data.get(name) or 0, score)
-        except ValueError as e:
-            print("Could not parse csv", end="")
+        except (csv.Error, ValueError) as e:
+            print("Could not parse csv => ", end="")
             print(e)
 
     return data
