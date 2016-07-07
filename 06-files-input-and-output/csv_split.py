@@ -33,7 +33,7 @@ def get_arguments():
 
     if len(sys.argv) == 1:
         parser.print_help()
-        return None
+        return False
     else:
         return parser.parse_args()
 
@@ -45,31 +45,23 @@ def validate_minimum_rows(csv_file_name, csv_file_num_lines, row_limit):
         ),
         end=""
     )
-
-    if csv_file_num_lines < row_limit:
-        print(
-            "Error: the file {file_name} contains {file_num_lines} lines, "
-            "it is smaller than the {row_limit} rows to split by".format(
-                file_name=csv_file_name,
-                file_num_lines=csv_file_num_lines,
-                row_limit=row_limit,
-            )
-        )
-        return False
-    else:
-        print("OK")
-        print("There are " + str(csv_file_num_lines) + " lines in the file")
-        return True
+    return row_limit < csv_file_num_lines
 
 def split_csv_to_chunks_by_rows(csv_data, row_limit):
+    """
+    :param csv_data: csv lines in list.
+    :param row_limit: split into a list with max size of row_limit.
+    :return: a list of lists (chunks) of csv lines.
+    """
     print("Splitting CSV into chunks every " + str(row_limit) + " lines")
-
     return split_list_in_groups_of(row_limit, csv_data)
 
 def split_list_in_groups_of(group_size, list_to_slice):
     slices = list()
+    current_slice = list()
 
     for index, item in enumerate(list_to_slice):
+
         if index % group_size == 0:
             current_slice = list()
             slices.append(current_slice)
@@ -79,7 +71,9 @@ def split_list_in_groups_of(group_size, list_to_slice):
     return slices
 
 def read_file(file_path):
-    # The output for this is a list of strings
+    """
+    :return: The output for this is a list of strings.
+    """
     with open(file_path, "r") as file_handler:
         return file_handler.readlines()
 
@@ -118,7 +112,7 @@ def main():
             )
         else:
             print("The file " + options.input_file + " not found")
-            return None
+            return
 
         if is_valid:
             csv_chunks = split_csv_to_chunks_by_rows(
@@ -130,9 +124,14 @@ def main():
                 output_directory=options.output_path,
             )
         else:
-            return None
-    else:
-        return None
+            print(
+                "Error: the file {file_name} contains {file_num_lines} lines, "
+                "it is smaller than the {row_limit} rows to split by".format(
+                    file_name=options.input_file,
+                    file_num_lines=csv_lines,
+                    row_limit=options.row_limit,
+                )
+            )
 
 if __name__ == "__main__":
     main()
