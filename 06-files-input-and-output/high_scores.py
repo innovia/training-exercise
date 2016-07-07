@@ -8,6 +8,7 @@ def parse_csv(csv_path):
     with open(csv_path, "r") as csv_path:
         try:
             csv_reader = csv.reader(csv_path)
+
             for name, score in csv_reader:
                 score = int(score)
                 data[name] = max(data.get(name) or 0, score)
