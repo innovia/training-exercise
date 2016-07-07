@@ -12,11 +12,11 @@ def capital_of_state_quiz(state):
 
         if check_answer(response, capitals_dict[state]):
             print("Correct")
-            return True
+            return
         elif response == "exit":
             print("The correct answer is: " + capitals_dict[state])
             print("Goodbye")
-            return True
+            return
         else:
             print("Wrong - try again or type exit to quit")
 
