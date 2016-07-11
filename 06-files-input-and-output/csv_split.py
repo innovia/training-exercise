@@ -45,6 +45,7 @@ def validate_minimum_rows(csv_file_name, csv_file_num_lines, row_limit):
         ),
         end=""
     )
+    
     return row_limit < csv_file_num_lines
 
 def split_csv_to_chunks_by_rows(csv_data, row_limit):
