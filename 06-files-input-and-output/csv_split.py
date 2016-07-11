@@ -45,7 +45,7 @@ def validate_minimum_rows(csv_file_name, csv_file_num_lines, row_limit):
         ),
         end=""
     )
-    
+
     return row_limit < csv_file_num_lines
 
 def split_csv_to_chunks_by_rows(csv_data, row_limit):
@@ -60,9 +60,7 @@ def split_csv_to_chunks_by_rows(csv_data, row_limit):
 def split_list_in_groups_of(group_size, list_to_slice):
     slices = list()
     current_slice = list()
-
     for index, item in enumerate(list_to_slice):
-
         if index % group_size == 0:
             current_slice = list()
             slices.append(current_slice)
