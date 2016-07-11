@@ -33,7 +33,7 @@ def get_arguments():
 
     if len(sys.argv) == 1:
         parser.print_help()
-        return False
+        return
     else:
         return parser.parse_args()
 
@@ -99,37 +99,39 @@ def output_to_files(csv_chunks, output_directory):
 
 def main():
     options = get_arguments()
-    if options:
-        if os.path.exists(options.input_file):
-            csv_data = read_file(options.input_file)
-            csv_lines = len(csv_data)
-            is_valid = validate_minimum_rows(
-                csv_file_name=options.input_file,
-                csv_file_num_lines=csv_lines,
+    if not options:
+        return
+
+    if not os.path.exists(options.input_file):
+        print("The file " + options.input_file + " not found")
+        return
+
+    csv_data = read_file(options.input_file)
+    csv_lines = len(csv_data)
+
+    if not validate_minimum_rows(
+        csv_file_name=options.input_file,
+        csv_file_num_lines=csv_lines,
+        row_limit=options.row_limit,
+    ):
+        print(
+            "Error: the file {file_name} contains {file_num_lines} lines, "
+            "it is smaller than the {row_limit} rows to split by".format(
+                file_name=options.input_file,
+                file_num_lines=csv_lines,
                 row_limit=options.row_limit,
             )
-        else:
-            print("The file " + options.input_file + " not found")
-            return
+        )
+        return
 
-        if is_valid:
-            csv_chunks = split_csv_to_chunks_by_rows(
-                csv_data=csv_data,
-                row_limit=options.row_limit
-            )
-            output_to_files(
-                csv_chunks=csv_chunks,
-                output_directory=options.output_path,
-            )
-        else:
-            print(
-                "Error: the file {file_name} contains {file_num_lines} lines, "
-                "it is smaller than the {row_limit} rows to split by".format(
-                    file_name=options.input_file,
-                    file_num_lines=csv_lines,
-                    row_limit=options.row_limit,
-                )
-            )
+    csv_chunks = split_csv_to_chunks_by_rows(
+        csv_data=csv_data,
+        row_limit=options.row_limit
+    )
+    output_to_files(
+        csv_chunks=csv_chunks,
+        output_directory=options.output_path,
+    )
 
 if __name__ == "__main__":
     main()
