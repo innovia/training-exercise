@@ -78,7 +78,7 @@ def read_file(file_path):
         return file_handler.readlines()
 
 def save_file(file_path, data):
-    with open(file_path, 'w') as file_handler:
+    with open(file_path, "w") as file_handler:
         file_handler.writelines(data)
 
 def output_to_files(csv_chunks, output_directory):
