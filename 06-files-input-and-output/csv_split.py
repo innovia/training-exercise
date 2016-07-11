@@ -101,7 +101,6 @@ def output_to_files(csv_chunks, output_directory):
 def main():
     options = get_arguments()
     if options:
-
         if os.path.exists(options.input_file):
             csv_data = read_file(options.input_file)
             csv_lines = len(csv_data)
